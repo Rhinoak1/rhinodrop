@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  rhinodrop:
+    build: .
+    container_name: rhinodrop
+    ports:
+      - "8090:8000"
+    volumes:
+      - ./app/uploads:/app/uploads
+      - ./app/pastes:/app/pastes
+      - ./app/static/qrcodes:/app/static/qrcodes
+    restart: unless-stopped

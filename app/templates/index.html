@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RhinoDrop</title>
+  <link rel="icon" href="/static/favicon.ico">
+  <style>
+    body { font-family: sans-serif; margin: 2rem; }
+    .secure-msg { font-weight: bold; color: #555; }
+    .container { max-width: 600px; margin: auto; }
+    input, textarea { width: 100%; margin: 1rem 0; padding: 0.5rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="/static/logo.png" width="80" alt="RhinoDrop Logo">
+    <h1>Welcome to RhinoDrop</h1>
+    <p class="secure-msg">Secure file drops powered by RhinoDrop</p>
+
+    {% if auth_required %}
+      <form method="POST" action="/auth">
+        <input type="password" name="password" placeholder="Enter password" required />
+        <button type="submit">Access</button>
+      </form>
+    {% else %}
+      <form action="/paste" method="post">
+        <textarea name="text" placeholder="Paste your text here..."></textarea>
+        <button type="submit">Create Paste</button>
+      </form>
+
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <button type="submit">Upload File</button>
+      </form>
+    {% endif %}
+  </div>
+</body>
+</html>
