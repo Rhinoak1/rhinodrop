@@ -6,7 +6,7 @@ import os, shutil, uuid, json
 import qrcode
 
 app = FastAPI()
-templates = Jinja2Templates(directory=\"app/templates\")
+templates = Jinja2Templates(directory="app/templates")
 
 with open(\"app/config.json\") as f:
     config = json.load(f)
