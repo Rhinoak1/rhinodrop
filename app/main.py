@@ -8,7 +8,7 @@ import qrcode
 app = FastAPI()
 templates = Jinja2Templates(directory="app/templates")
 
-with open(\"app/config.json\") as f:
+with open("app/config.json") as f:
     config = json.load(f)
 
 if not os.path.exists(\"app/static/qrcodes\"):
