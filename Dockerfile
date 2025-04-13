@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . /app
 
-RUN pip install --no-cache-dir fastapi uvicorn jinja2 qrcode
+RUN pip install --no-cache-dir fastapi uvicorn jinja2 qrcode python-multipart
 
 EXPOSE 8000
 
